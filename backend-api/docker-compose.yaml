@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  backend-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - FILE_SERVICE_URL=https://echo-serv.tbxnet.com
+      - BEARER_TOKEN=aSuperSecretKey
+      - FILE_SERVICE_TIMEOUT=5
+      - NODE_ENV=production

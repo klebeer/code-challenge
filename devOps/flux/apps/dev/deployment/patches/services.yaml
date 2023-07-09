@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-api
+spec:
+  selector:
+    matchLabels:
+      app: backend-api
+  template:
+    metadata:
+      labels:
+        app: backend-api
+    spec:
+      containers:
+        - name: backend-api
+          image: ghcr.io/klebeer/code-challenge/backend-api:main-5924de462ebfa1f996e8c12751afbc49d8739144-1688925031 # {"$imagepolicy": "flux-system:dev-backend-api"}
+          env:
+            - name: FILE_SERVICE_URL
+              value: https://echo-serv.tbxnet.com
+            - name: BEARER_TOKEN
+              value: aSuperSecretKey
+            - name: FILE_SERVICE_TIMEOUT
+              value: "5"
+            - name: NODE_ENV
+              value: "production"
+

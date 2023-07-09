@@ -1,0 +1,11 @@
+packages/**/*.d.ts
+packages/**/*.js
+node_modules/**
+logs/**
+dist/**
+README.md
+.github/pull_request_template.md
+buildspec.yml
+open-api.json
+.npmrc
+open-api.yaml
