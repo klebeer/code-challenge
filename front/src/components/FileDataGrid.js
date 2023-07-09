@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
 
 function FileDataGrid({ data, onFilter }) {
   const [filter, setFilter] = useState('');
@@ -10,8 +10,13 @@ function FileDataGrid({ data, onFilter }) {
     setFilter(event.target.value);
   };
 
-  const handleFilterSubmit = () => {
-    onFilter(filter);
+  const handleSearchClick = () => {
+    onFilter(filter || undefined);
+  };
+
+  const handleClearClick = () => {
+    setFilter('');
+    onFilter(undefined);
   };
 
   return (
@@ -22,8 +27,8 @@ function FileDataGrid({ data, onFilter }) {
         onChange={handleFilterChange}
         value={filter}
       />
-      <Button onClick={handleFilterSubmit}>Filter</Button>
-
+      <Button onClick={handleSearchClick}>Search</Button>
+      <Button onClick={handleClearClick}>Clear</Button>
       <Table striped bordered hover>
         <thead>
         <tr>

@@ -18,7 +18,11 @@ export const fetchData = (fileName = undefined) => {
         dispatch(fetchDataSuccess(sortedData));
       })
       .catch(error => {
-        dispatch(fetchDataFailure(error.message));
+        if (error.response && error.response.status === 404) {
+          dispatch(fetchData());  // Re-fetch all data
+        } else {
+          dispatch(fetchDataFailure(error.message));
+        }
       });
   };
 };
