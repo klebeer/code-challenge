@@ -19,7 +19,7 @@ export const fetchData = (fileName = undefined) => {
       })
       .catch(error => {
         if (error.response && error.response.status === 404) {
-          dispatch(fetchData());  // Re-fetch all data
+          dispatch(fetchDataSuccess([]));
         } else {
           dispatch(fetchDataFailure(error.message));
         }
