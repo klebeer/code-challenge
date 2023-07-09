@@ -23,4 +23,16 @@ spec:
               value: "5"
             - name: NODE_ENV
               value: "production"
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-api
+  namespace: dev
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: backend-api
