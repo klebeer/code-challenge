@@ -1,0 +1,41 @@
+name: build--and-publish-docker-image
+
+run-name: Build and push Docker image to GitHub Container Registry
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-docker-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      # Checkout source code
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: cd backend-api && npm install
+
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v6
+
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +%s)" >>$GITHUB_OUTPUT
+
+      - name: Build and publish Docker Images backend-api to GitHub Container registry
+        uses: VaultVulp/gp-docker-action@1.6.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: backend-api
+          build-context: ./backend-api
+          dockerfile: Dockerfile
+          image-tag: ${{ steps.branch-name.outputs.current_branch }}-${{ github.sha }}-${{ steps.date.outputs.date }}

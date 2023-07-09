@@ -1,0 +1,6 @@
+dist/**
+node_modules/**
+README.md
+swagger_output.json
+.github/pull_request_template.md
+open-api.yaml
