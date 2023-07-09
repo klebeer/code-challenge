@@ -34,7 +34,7 @@ jobs:
       - name: Build and publish Docker Images backend-api to GitHub Container registry
         uses: VaultVulp/gp-docker-action@1.6.0
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GPAT }}
           image-name: backend-api
           build-context: ./backend-api
           dockerfile: Dockerfile
