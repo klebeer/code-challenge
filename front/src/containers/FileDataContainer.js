@@ -6,7 +6,6 @@ import FileDataGrid from '../components/FileDataGrid';
 function FileDataContainer() {
   const dispatch = useDispatch();
   const data = useSelector(state => state.data);
-  const loading = useSelector(state => state.loading);
   const error = useSelector(state => state.error);
 
   const fetchDataWithFilter = useCallback((filter) => {
