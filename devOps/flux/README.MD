@@ -10,7 +10,7 @@ This repo contains a simple deployment of fluxCD to deploy the code challenge im
 * [kustomize](https://kustomize.io/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * An Kubernetes cluster
-* A GitHub repository named flux-deployment
+* A GitHub repository to store the kustomizations
 * A Personal Access Token with read packages permissions
 
 You need to be **logged in to the cluster** before running the following commands.
