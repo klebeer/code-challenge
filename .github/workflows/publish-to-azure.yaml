@@ -21,11 +21,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: 16
 
       - name: Install dependencies and build
         run: |
-          cd front && npm ci
+          cd front && npm clean install
       - name: Deploy to Azure Storage
         uses: azure/CLI@v1
         with:
