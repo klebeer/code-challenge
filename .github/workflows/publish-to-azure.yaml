@@ -32,6 +32,6 @@ jobs:
           azcliversion: 2.0.72
           inlineScript: |
             az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }} --allow-no-subscriptions
-            az storage container create --name '$web' --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} --fail-on-exist
+            az storage container create --name '$web' --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
             az storage blob delete-batch -s '$web' --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
             az storage blob upload-batch -s front/build -d '$web' --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
