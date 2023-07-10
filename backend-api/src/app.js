@@ -9,7 +9,7 @@ import healthRouter from './routes/health.js';
 const app = express();
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'https://challenge.null.ec'],
+    origin: ['http://localhost:3000', 'https://challenge.null.ec/'],
   }),
 );
 app.use(helmet());
