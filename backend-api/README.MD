@@ -29,3 +29,4 @@ Also, we have other scripts to run the application:
 
 ## Run with docker-compose
 * Run `docker-compose up` to start the application with docker-compose.
+
