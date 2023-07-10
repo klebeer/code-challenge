@@ -1,5 +1,6 @@
 import { createAzureAKS } from './app/cluster/codeChallenge/azure-aks';
 import { createResourceGroup } from './app/cluster/codeChallenge/azure-resource-group';
+import { createAzureStorage } from './app/cluster/codeChallenge/azure-storage';
 import { createAzureSubnet } from './app/cluster/codeChallenge/azure-subnet';
 import { createVnet } from './app/cluster/codeChallenge/azure-vnet';
 import {
@@ -9,6 +10,7 @@ import {
   AKS_NODE_COUNT,
   LOCATION,
   RESOURCE_GROUP_NAME,
+  STORAGE_NAME,
   SUBNET_NAME,
   VNET_ADDRESS_PREFIX,
   VNET_NAME,
@@ -26,4 +28,7 @@ resourceGroup.name.apply((name) => {
 
   const aks = createAzureAKS(AKS_NAME, RESOURCE_GROUP_NAME, LOCATION, AKS_DNS_PREFIX, AKS_NODE_COUNT, aksSubNet);
   aks.id.apply((id) => logger.info(`codeChallengeVnet aks created ${id}`));
+
+  const storageAccount = createAzureStorage(STORAGE_NAME, RESOURCE_GROUP_NAME);
+  storageAccount.id.apply((id) => logger.info(`storageAccount created ${id}`));
 });
