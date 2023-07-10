@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: backend-api
-          image: ghcr.io/klebeer/code-challenge/backend-api:main-79717854d5931ac7fef870bf52a8beb7f69608a4-1688940071 # {"$imagepolicy": "flux-system:dev-backend-api"}
+          image: ghcr.io/klebeer/code-challenge/backend-api:main-3be2ddf7c40d6b9391107bb5975d1bf158997fbc-1688954150 # {"$imagepolicy": "flux-system:dev-backend-api"}
           env:
             - name: FILE_SERVICE_URL
               value: https://echo-serv.tbxnet.com
