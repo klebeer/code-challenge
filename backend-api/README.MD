@@ -30,3 +30,13 @@ Also, we have other scripts to run the application:
 ## Run with docker-compose
 * Run `docker-compose up` to start the application with docker-compose.
 
+
+## Deployment
+This project uses automated deployment using a github action to deploy the backend to a kubebernetes cluster using fluxCD.
+The first step is performed when a merge is done to the main branch, in this point a github action publishes the docker image to the github container registry.
+More details, see the github action file: [publish-to-ghcr.yml](../.github/workflows/publish-to-dc.yaml)
+
+
+## Code Quality
+This project uses eslint to check the code quality, you can run the command `npm run check-style` to check the code quality.
+Also a Sonar Cloud analysis is performed on a PR to the branches develop and main.
