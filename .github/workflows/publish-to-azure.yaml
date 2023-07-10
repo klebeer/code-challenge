@@ -25,7 +25,9 @@ jobs:
 
       - name: Install dependencies and build
         run: |
-          cd front && npm install & npm run build
+          cd front
+          npm install
+          npm run build
       - name: Deploy to Azure Storage
         uses: azure/CLI@v1
         with:
